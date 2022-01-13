@@ -7,10 +7,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 	</head>
 	<style>
 		@import url("external.css");
 		@import url("timeline.css");
+		@import url("radar.css")
 	</style>
 	<body class="is-preload">
 
@@ -73,9 +75,68 @@
 						</div>
 					</section>
 				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
+					<section id="two" class="wrapper style3 fullscreen fade-up">
+						<div id="myChart" class="chart--container">
+							<a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
 						</div>
+						<script>
+							ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+							var myConfig = {
+							  type: 'radar',
+							  plot: {
+								aspect: 'area',
+								animation: {
+								  effect: 3,
+								  sequence: 1,
+								  speed: 700
+								}
+							  },
+							  scaleV: {
+								visible: true,
+								values : "0:100:10"
+							  },
+							  scaleK: {
+								values: '0:11:1',
+								labels: ['Python', 'Golang', 'Django', 'Rest API', 'MYSQL', 'Postgresql', 'ElasticSearch', 'Redis', 
+                                'Kafka', 'Graphql', 'Docker', 'GIT' ],
+								item: {
+								  fontColor: '#607D8B',
+								  backgroundColor: "white",
+								  borderColor: "#aeaeae",
+								  borderWidth: 1,
+								  padding: '5 10',
+								  borderRadius: 10
+								},
+								refLine: {
+								  lineColor: '#c10000'
+								},
+								tick: {
+								  lineColor: '#59869c',
+								  lineWidth: 2,
+								  lineStyle: 'dotted',
+								  size: 20
+								},
+								guide: {
+								  lineColor: "#607D8B",
+								  lineStyle: 'solid',
+								  alpha: 0.3,
+								  backgroundColor: "#c5c5c5 #718eb4"
+								}
+							  },
+							  series: [{
+								  values: [80, 50, 90, 90, 80, 80, 65, 80, 75, 50, 60, 90],
+								  text: 'farm'
+								}
+							  ]
+							};
+						 
+							zingchart.render({
+							  id: 'myChart',
+							  data: myConfig,
+							  height: '100%',
+							  width: '100%'
+							});
+						  </script>
 					</section>
 
 				<!-- Three -->
