@@ -9,5 +9,5 @@
 }
    
 .zc-ref {
-    display: none;
+    display: none !important;
 }
